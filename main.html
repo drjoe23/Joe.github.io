@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Go_NET</title>
+</head>
+<body>
+
+<h1>Restricted Content</h1>
+
+<script>
+// Check if the user is authenticated
+const isAuthenticated = localStorage.getItem('isAuthenticated');
+
+if (!isAuthenticated || isAuthenticated !== 'true') {
+    window.location.href = 'login.html'; // Redirect to login page if not authenticated
+}
+</script>
+
+</body>
+</html>

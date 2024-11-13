@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Page</title>
+</head>
+<body>
+
+<h1>Login</h1>
+
+<form id="loginForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password">
+    <br>
+    <button type="button" onclick="login()">Login</button>
+</form>
+
+<p id="hashedPassword"></p>
+<script src="hf.js"></script>
+<script>
+const predefinedHashedPassword = '6985145855f2a4442529c93e177519fb5172b716d54441b3fb6d11c44dc58330';
+function login() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    sha256(password).then(hashedPassword => {
+        if (hashedPassword === predefinedHashedPassword) {
+            localStorage.setItem('isAuthenticated', 'true');
+            alert('Login successful! Redirecting...');
+            window.location.replace('main.html'); // Redirect to the restricted page
+        } else {
+            alert('Invalid username or password. Please try again.');
+        }
+    });
+}
+</script>
+</body>
+</html>
