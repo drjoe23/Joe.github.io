@@ -29,7 +29,6 @@ function login() {
     sha256(password).then(hashedPassword => {
         if (hashedPassword === predefinedHashedPassword) {
             localStorage.setItem('isAuthenticated', 'true');
-            alert('Login successful! Redirecting...');
             window.location.replace('main.html'); // Redirect to the restricted page
         } else {
             alert('Invalid username or password. Please try again.');
